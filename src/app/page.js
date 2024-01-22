@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
   };
 
   //GET DATA
-  const getData = async () => {
+  useEffect(()=>{const getData = async () => {
     try {
       const response = await Axios.get(
         `/api/productRoute`
@@ -37,7 +37,8 @@ export default function Home() {
       console.log(error);
     }
   };
-  getData();
+  getData()}, [])
+  
 
   //Update data
   const handleEdit = (name, brand, price, quantity, productId) => {
@@ -139,7 +140,7 @@ export default function Home() {
       {/* Products */}
       <div className="m-10">
         {prodArray.map((element) => {
-          console.log(element.name)
+          console.log([element.name, element.brand, element.price, element.quantity]);
           return (
             <ul className="flex justify-between" key={element._id}>
               <li className="flex-1">{element.name}</li>
