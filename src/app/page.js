@@ -18,7 +18,7 @@ export default function Home() {
       price: price,
       quantity: quantity,
     };
-    await Axios.post(`http://localhost:3000/api/productRoute`, productObj).then(
+    await Axios.post(`https://next-js-rest-api.vercel.app/api/productRoute`, productObj).then(
       () => {
         alert("Posted successfully");
       }
@@ -57,7 +57,7 @@ export default function Home() {
       quantity: quantity,
     };
     await Axios.put(
-      `http://localhost:3000/api/productRoute/${id}`,
+      `https://next-js-rest-api.vercel.app/api/productRoute/${id}`,
       productObj
     ).then(() => {
       alert("Updated item");
@@ -66,7 +66,7 @@ export default function Home() {
 
   //Delete
   const deleteProduct = async(id)=>{
-    await Axios.delete( `http://localhost:3000/api/productRoute/${id}`).then(()=>{
+    await Axios.delete( `https://next-js-rest-api.vercel.app/api/productRoute/${id}`).then(()=>{
       alert("Deleted item")
     })
   }
