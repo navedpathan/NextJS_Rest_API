@@ -3,9 +3,9 @@ const nextConfig = {}
 
 module.exports = nextConfig
 
-// module.exports = {
-//     experimental: {
-//         serverActions: true, //enable experimental server action flag
-//         serverComponentsExternalPackages: ['mongoose']
-//     }
-// }
+module.exports = {
+    experimental: {
+        serverActions: true, //enable experimental server action flag
+        serverComponentsExternalPackages: ['mongoose']
+    }
+}
