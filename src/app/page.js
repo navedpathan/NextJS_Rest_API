@@ -18,7 +18,7 @@ export default function Home() {
       price: price,
       quantity: quantity,
     };
-    await Axios.post(`https://crud-nextjs-rest-api.netlify.app/api/productRoute`, productObj).then(
+    await Axios.post("https://next-js-rest-api.vercel.app/api/productRoute", productObj).then(
       () => {
         alert("Posted successfully");
       }
@@ -29,7 +29,7 @@ export default function Home() {
   useEffect(()=>{const getData = async () => {
     try {
       const response = await Axios.get(
-        `/api/productRoute`
+        "https://next-js-rest-api.vercel.app/api/productRoute"
       );
       const products = response.data;
       setProdArray(products);
@@ -58,7 +58,7 @@ export default function Home() {
       quantity: quantity,
     };
     await Axios.put(
-      `https://crud-nextjs-rest-api.netlify.app/api/productRoute/${id}`,
+      `https://next-js-rest-api.vercel.app/api/productRoute/${id}`,
       productObj
     ).then(() => {
       alert("Updated item");
@@ -67,7 +67,7 @@ export default function Home() {
 
   //Delete
   const deleteProduct = async(id)=>{
-    await Axios.delete( `https://crud-nextjs-rest-api.netlify.app/api/productRoute/${id}`).then(()=>{
+    await Axios.delete( `https://next-js-rest-api.vercel.app/api/productRoute/${id}`).then(()=>{
       alert("Deleted item")
     })
   }
