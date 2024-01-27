@@ -71,7 +71,8 @@ export default function Home() {
   //Delete
   const deleteProduct = async(id)=>{
     await Axios.delete( `${apiUrl}/api/productRoute/${id}`).then(()=>{
-      alert("Deleted item")
+      alert("Deleted item");
+      window.location.reload();
     })
   }
 
@@ -87,6 +88,8 @@ export default function Home() {
             className="shadow-xl shadow-slate-500 w-[75%] h-10 p-2 outline-none mb-5"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            autoComplete="off"
+            required
           />
         </label>
         <label htmlFor="brand">
@@ -98,6 +101,8 @@ export default function Home() {
             className="shadow-xl shadow-slate-500 w-[75%] h-10 p-2 outline-none mb-5"
             value={brand}
             onChange={(e) => setBrand(e.target.value)}
+            autoComplete="off"
+            required
           />
         </label>
         <label htmlFor="price">
@@ -109,6 +114,8 @@ export default function Home() {
             className="shadow-xl shadow-slate-500 w-[75%] h-10 p-2 outline-none mb-5"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
+            autoComplete="off"
+            required
           />
         </label>
         <label htmlFor="quantity">
@@ -120,6 +127,8 @@ export default function Home() {
             className="shadow-xl shadow-slate-500 w-[75%] h-10 p-2 outline-none mb-5"
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
+            autoComplete="off"
+            required
           />
         </label>
         <br />
@@ -143,7 +152,7 @@ export default function Home() {
       {/* Products */}
       <div className="m-10">
         {prodArray.map((element) => {
-          console.log([element.name, element.brand, element.price, element.quantity]);
+          // console.log([element.name, element.brand, element.price, element.quantity]);
           return (
             <ul className="flex justify-between" key={element._id}>
               <li className="flex-1">{element.name}</li>
