@@ -11,6 +11,9 @@ export default function Home() {
   const [prodArray, setProdArray] = useState([]);
   const [visibility, setVisibility] = useState(false);
 
+  // const apiUrl = "http://localhost:3000";
+  const apiUrl = "https://next-js-rest-api.vercel.app";
+
   const handleSubmit = async () => {
     const productObj = {
       name: name,
@@ -18,7 +21,7 @@ export default function Home() {
       price: price,
       quantity: quantity,
     };
-    await Axios.post("https://next-js-rest-api.vercel.app/api/productRoute", productObj).then(
+    await Axios.post(`${apiUrl}/api/productRoute`, productObj).then(
       () => {
         alert("Posted successfully");
       }
@@ -29,7 +32,7 @@ export default function Home() {
   useEffect(()=>{const getData = async () => {
     try {
       const response = await Axios.get(
-        "https://next-js-rest-api.vercel.app/api/productRoute"
+        `${apiUrl}/api/productRoute`
       );
       const products = response.data;
       setProdArray(products);
@@ -58,7 +61,7 @@ export default function Home() {
       quantity: quantity,
     };
     await Axios.put(
-      `https://next-js-rest-api.vercel.app/api/productRoute/${id}`,
+      `${apiUrl}/api/productRoute/${id}`,
       productObj
     ).then(() => {
       alert("Updated item");
@@ -67,7 +70,7 @@ export default function Home() {
 
   //Delete
   const deleteProduct = async(id)=>{
-    await Axios.delete( `https://next-js-rest-api.vercel.app/api/productRoute/${id}`).then(()=>{
+    await Axios.delete( `${apiUrl}/api/productRoute/${id}`).then(()=>{
       alert("Deleted item")
     })
   }
