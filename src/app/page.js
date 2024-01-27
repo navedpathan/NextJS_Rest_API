@@ -11,8 +11,8 @@ export default function Home() {
   const [prodArray, setProdArray] = useState([]);
   const [visibility, setVisibility] = useState(false);
 
-  const apiUrl = "http://localhost:3000";
-  // const apiUrl = "https://next-js-rest-api.vercel.app";
+  // const apiUrl = "http://localhost:3000";
+  const apiUrl = "https://next-js-rest-api.vercel.app";
 
   const handleSubmit = async () => {
     const productObj = {
